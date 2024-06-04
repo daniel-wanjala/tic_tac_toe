@@ -1,0 +1,153 @@
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background-color: #f0f0f0;
+}
+
+.container {
+	text-align: center;
+}
+
+h1 {
+	color: #333;
+}
+
+#game-options {
+	margin-bottom: 20px;
+}
+
+button {
+	font-size: 1rem;
+	padding: 10px 20px;
+	margin: 0 10px;
+	cursor: pointer;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: #45a049;
+}
+
+#player-turn {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+#game-board {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 5px;
+	width: 300px;
+	margin: 0 auto;
+}
+
+.square {
+	background-color: #fff;
+	border: 2px solid #333;
+	border-radius: 5px;
+	font-size: 3rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+#game-options {
+	margin-bottom: 20px;
+}
+
+#game-options button {
+	font-size: 1rem;
+	padding: 10px 20px;
+	margin: 0 10px;
+	cursor: pointer;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+#game-options button:hover {
+	background-color: #45a049;
+}
+
+#game-options button:active {
+	transform: scale(0.95);
+}
+
+#game-options button::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 5px;
+	height: 5px;
+	background: rgba(255, 255, 255, 0.5);
+	opacity: 0;
+	border-radius: 100%;
+	transform: scale(1, 1) translate(-50%);
+	transform-origin: 50% 50%;
+}
+
+#game-options button:focus:not(:active)::after {
+	animation: ripple 1s ease-out;
+}
+
+#game-options button.selected {
+	background-color: #ff9800;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#game-options button.selected:hover {
+	background-color: #f57c00;
+}
+
+@keyframes ripple {
+	0% {
+		transform: scale(0, 0);
+		opacity: 1;
+	}
+	20% {
+		transform: scale(25, 25);
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(40, 40);
+	}
+}
+
+.square:hover {
+	background-color: #e7e7e7;
+}
+
+.square[data-winning="true"] {
+	background-color: #4caf50;
+	color: white;
+}
+
+#end-message {
+	margin-top: 20px;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#restart-btn {
+	display: none;
+	margin-top: 20px;
+}
